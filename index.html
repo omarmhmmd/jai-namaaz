@@ -1,619 +1,713 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title> Prayer Place | جای نماز </title>
-  <link rel="shortcut icon" href="globe.png">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtMq7XliAPrVT60KhSoJ100xw8qIdulUs&callback=initMap&libraries=&v=weekly" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
+  <head>
+    <title> Prayer Place | جای نماز </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="globe.png">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtMq7XliAPrVT60KhSoJ100xw8qIdulUs&callback=initMap&libraries=&v=weekly" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
 
-<body>
-  <div class="container">
-    <div class="button">
-      <button id = "button" onclick="openInfo()" type="button" name="button">Info</button>
-      <button id = "button" onclick="refreshPage()" type="button" name="button">Place</button>
-    </div>
-    <div id="rug">
-      <div id="rug-thread">
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
-        </div>
-        <div class="">
-          |
+  <body>
+    <div id="container">
+      <div id="button-container">
+        <button class = "button" onclick="openInfo()">Info</button>
+        <button class = "button" onclick="refreshPage()">Place</button>
+      </div>
+      <div id="rug">
+        <div id="rug-thread">
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+          <div class="">
+            |
+          </div>
+        </div>
+        <div id="rug-content">
+          <div class="title">Prayer Place</div>
+          <br>
+          <div class="title">جای نماز</div>
+          <br>
+          <div id="lat-lng"></div>
+          <br>
+          <div id="kaabahDom"></div>
+        </div>
+        <div id="rug-info">
+          <div id="info-title">
+            Prayer Place | جای نماز <br> by <a target="_blank" href="http://omarmhmmd.com/">Omar Mohammad</a>
+          </div>
+          <br>
+          In Farsi the word "prayer rug" is translated to جاینماز (jainamaaz). Breaking down the term further, the components become جای نماز, or "place of prayer". This translation differs greatly from its Arabic counterpart, سجادة الصلاة (sajjadat as-salat), which translates roughly to "bowing, or prostration rug". I think there is a beauty in both of these versions, but there is a poetic and abstracted gesture in the Farsi translation. It may stem from the beauty of classic Farsi poetry and literature, and the namer has given an object as simple as a rug a poetic identity; I have no idea.
+          <br>
+          <br>
+          This website places the user on an abstracted prayer rug, in a panoramic landscape, facing the physical direction of Qiblah. Utilizing the Google StreetView API, I wrote some software that places the user in a random location somewhere on Earth. This location is then used to calculate the proper bearing to face Qiblah, and the StreetView camera is then pointed and fixed in that direction. Inspired by the use of VR/AR world exploration by many designers and engineers due to COVID-19, I wanted to imagine what a جای نماز, or "place of prayer", looked like from anywhere in the world.
+          <br>
+          <br>
+          <hr>
+          <br>
+          Sadly, the Google StreetView API is not free. If you enjoyed your time here, or this website inspired you, please feel free to donate whatever you can to help cover the API costs. It costs about $0.007 to pull in data each time, so really anything helps!
+          <br>
+          <br>
+          <a target="_blank" href="https://cash.app/$OmarMohammad"><button id="donate-button">Donate</button></a>
+          <br>
+          <hr>
         </div>
       </div>
-      <div id="rug-content">
-        <div class="title">Prayer Place</div>
-        <br>
-        <div class="title">جای نماز</div>
-        <br>
-        <div id="lat-lng"></div>
-        <br>
-        <div id="kaabahDom"></div>
-      </div>
-      <div id="rug-info">
-        <div class="info-title">
-          Prayer Place | جای نماز <br> by <a id="info-title-link"target="_blank" href="http://omarmhmmd.com/">Omar Mohammad</a>
-        </div>
-        <br>
-        In Farsi, the word "prayer rug" is translated to جاینماز (jainamaaz). Breaking down the term further, the components become جای نماز, or "place of prayer". This translation differs greatly from its Arabic counterpart, سجادة الصلاة (sajjadat as-salat), which translates roughly to "bowing, or prostration rug". I think there is a beauty in both of these versions, but there is a poetic and abstracted gesture in the Farsi translation. It may stem from the beauty of classic Farsi poetry and literature, where the namer has given an object as simple as a rug a poetic identity; I have no idea.
-        <br>
-        <br>
-        This website places the user on an abstracted prayer rug, in a panoramic landscape, facing the physical direction of Qiblah. Utilizing the Google StreetView API, I wrote some software that places the user in a random location somewhere on Earth. This location is then used to calculate the proper bearing to face Qiblah, and the StreetView camera is then pointed and fixed in that direction. Inspired by the use of VR/AR world exploration by many designers and engineers due to COVID-19, I wanted to imagine what a جای نماز, or "place of prayer", looked like from anywhere in the world.
-        <br>
-        <br>
-        <hr>
-        <br>
-        Sadly, the Google StreetView API is not free. If you enjoyed your time here, or this website inspired you, please feel free to donate whatever you can to help cover the API costs. It costs about $0.007 to pull in data each time, so really anything helps!
-        <br>
-        <br>
-        <a target="_blank" href="https://cash.app/$OmarMohammad"><button id="donate-button" type="button" name="button">Donate</button></a>
-        <br>
-        <hr>
+      <div id="pano">
+        <img src="screenshot-1.png" alt="">
       </div>
     </div>
-    <div id="pano">
-      <img src="screenshot-1.png" alt="">
-    </div>
-  </div>
-</body>
+  </body>
 
-<style>
-
-  @font-face {
-    font-family: Zeyn;
-    src: url(fonts/29LTZeyn-Light.otf);
-    font-weight: 100;
-  }
-  @font-face {
-    font-family: Zeyn;
-    src: url(fonts/29LTZeyn-Regular.otf);
-    font-weight: 200;
-  }
-  @font-face {
-    font-family: Zeyn;
-    src: url(fonts/29LTZeyn-Medium.otf);
-    font-weight: 300;
-  }
-  /* Remove Google Maps UI & Text */
-  a[href^="http://maps.google.com/maps"] {
-    display: none !important
-  }
-
-  a[href^="https://maps.google.com/maps"] {
-    display: none !important
-  }
-
-  .gmnoprint a,
-  .gmnoprint span,
-  .gm-style-cc {
-    display: none;
-  }
-
-  .gmnoprint div {
-    background: none !important;
-  }
-  /* Remove Google Maps UI & Text */
-
-  hr {
-    width: 100%;
-  }
-  html,
-  body {
-    font-family: Zeyn;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .gm-style {
-    /* z-index: -1 !important; */
-  }
-
-  img {
-    width: 100%;
-    position: absolute;
-    height: 100%;
-  }
-
-  .button {
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
-    width: 95vw;
-    justify-content: flex-end;
-    /* margin-left: 90vw; */
-    margin-bottom: 3vh;
-    position: absolute;
-  }
-
-  button {
-    font-family: Zeyn;
-    font-weight: 100;
-    cursor: pointer;
-    margin-left: 0.5em;
-    font-size: 16px;
-    font-weight: 200;
-  }
-
-  .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  /**** Rug Design ****/
-
-  #pano {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    /* position: absolute; */
-    background-color: black;
-    z-index: -100;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-  }
-
-  #rug-thread {
-    z-index: 1;
-    position: absolute;
-    border-bottom: 2px solid white;
-    bottom: 100%;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .title {
-    font-size: 6em;
-    font-weight: 100;
-  }
-
-  #rug-content {
-    display: flex;
-    font-weight: 100;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 75px;
-  }
-
-  #rug-info {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 200;
-    position: relative !important;
-    overflow: scroll !important;
-    width: 90%;
-    margin-top: 25px;
-    margin-bottom: 112.5px;
-    line-height: 1.25em;
-    font-size: 20px;
-  }
-
-  .info-title {
-    font-size: 24px;
-  }
-
-  #donate-button {
-    float: left;
-    width: auto;
-  }
-
-  #info-title-link {
-    color: white;
-    text-decoration: none;
-  }
-
-  #info-title-link:hover {
-    text-decoration: underline;
-  }
-
-  #lat-lng a, #kaabahDom a {
-    display: flex !important;
-    color: white;
-    text-decoration: none;
-  }
-
-  #lat-lng a:hover, #kaabahDom a:hover {
-    text-decoration: underline;
-  }
-
-  #kaabahDom {
-    font-size: 14px;
-  }
-
-  #rug {
-    transition: 1s;
-    transition-timing-function: ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    outline: 1px solid white;
-    height: 30em;
-    width: 30em;
-    position: absolute;
-    position: fixed;
-    background-color: rgba(255, 255, 255, .01);
-    backdrop-filter: blur(25px);
-    transform: perspective(300px) rotateX(45deg);
-    margin: -100px;
-  }
-  /**** End Rug Design ****/
-</style>
-
-<script>
-  var open = false;
-  function openInfo() {
-    if (open == false) {
-      open = true;
-      document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
-      // document.getElementById("rug").style.backdropFilter = "blur(100px)";
-      setTimeout(() => {
-        document.getElementById("rug-content").style.display = "none";
-        document.getElementById("rug-info").style.display = "flex";
-        document.getElementById("button").innerHTML = "Rug";
-      }, 500);
-    }
-    else {
-      document.getElementById("rug").style.transform = "perspective(300px) rotateX(45deg)";
-      // document.getElementById("rug").style.backdropFilter = "blur(15px)";
-      setTimeout(() => {
-        document.getElementById("rug-content").style.display = "flex";
-        document.getElementById("rug-info").style.display = "none";
-        document.getElementById("button").innerHTML = "Info";
-      }, 500);
-      open = false;
-    }
-  }
-
-  function refreshPage() {
-    var divLatLng = document.getElementById('lat-lng');
-    while(divLatLng.firstChild){
-      divLatLng.removeChild(divLatLng.firstChild);
+  <style>
+    /* Remove Google Maps UI & Text */
+    a[href^="http://maps.google.com/maps"] {
+      display: none !important
     }
 
-    var divkaabahDom = document.getElementById('kaabahDom');
-    while(divkaabahDom.firstChild){
-      divkaabahDom.removeChild(divkaabahDom.firstChild);
+    a[href^="https://maps.google.com/maps"] {
+      display: none !important
     }
+
+    .gmnoprint a,
+    .gmnoprint span,
+    .gm-style-cc {
+      display: none;
+    }
+
+    .gmnoprint div {
+      background: none !important;
+    }
+    /* Remove Google Maps UI & Text */
+
+    /* HTML/BODY */
+    html,
+    body {
+      font-family: Zeyn;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    @font-face {
+      font-family: Zeyn;
+      src: url(fonts/29LTZeyn-Light.otf);
+      font-weight: 100;
+    }
+    @font-face {
+      font-family: Zeyn;
+      src: url(fonts/29LTZeyn-Regular.otf);
+      font-weight: 200;
+    }
+    @font-face {
+      font-family: Zeyn;
+      src: url(fonts/29LTZeyn-Medium.otf);
+      font-weight: 300;
+    }
+
+    #container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+    }
+
+
+    hr {
+      width: 100%;
+    }
+
+    #pano {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      /* position: absolute; */
+      background-color: black;
+      z-index: -100;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+    }
+
+    img {
+      width: 100%;
+      position: absolute;
+      height: 100%;
+    }
+    /* HTML/BODY */
+
+    /* Buttons */
+    #button-container {
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      width: 95vw;
+      justify-content: flex-end;
+      /* margin-left: 90vw; */
+      margin-bottom: 3vh;
+      position: absolute;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      #button-container {
+        z-index: 0;
+        display: flex;
+        flex-direction: row;
+        width: 95vw;
+        float: top;
+        justify-content: center;
+        /* background-color: red; */
+        /* align-content: flex-start; */
+        /* margin-left: 90vw; */
+        padding-bottom: 75vh !important;
+        position: fixed;
+      }
+    }
+
+    button {
+      -webkit-appearance: none;
+      border-radius: 0;
+      border: 1px solid black;
+      background-color: rgb(239, 239, 239);
+      font-family: Zeyn;
+      font-weight: 100;
+      cursor: pointer;
+      margin-left: 0.5em;
+      font-size: 16px;
+      font-weight: 200;
+      border-radius: 2.5px;
+      outline: 0;
+    }
+
+    #donate-button {
+      float: left;
+      width: auto;
+    }
+    /* End Buttons */
+
+    /**** Rug Design ****/
+    #rug {
+      transition: 1s;
+      transition-timing-function: ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border: 1px solid white;
+      height: 30em;
+      width: 30em;
+      position: fixed;
+      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(25px);
+      transform: perspective(300px) rotateX(45deg);
+      margin: -100px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      #rug {
+        height: 62.5vh;
+        width: 80vw;
+        border: 1px solid white;
+        border-top: 0px;
+        border-bottom: 0px;
+        /* background-color: red; */
+        -webkit-backdrop-filter: blur(35px);
+        backdrop-filter: blur(35px);
+        /* transform: perspective(700px) rotateX(55deg); */
+        transform: perspective(0) rotateX(0);
+        margin: 0;
+      }
+      #rug-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+
+      #rug-thread {
+        z-index: 1;
+        position: absolute;
+        border-bottom: 2px solid white;
+        bottom: 100%;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        #rug-thread {
+          bottom: 95%;
+          border-bottom: 1px solid white;
+        }
+      }
+
+      #rug-content {
+        display: flex;
+        font-weight: 100;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 75px;
+      }
+
+        .title {
+          font-size: 6em;
+          font-weight: 100;
+        }
+
+        @media only screen and (max-width: 1024px) {
+          .title {
+            font-size: 4.25em;
+          }
+        }
+
+        #lat-lng a, #kaabahDom a {
+          display: flex !important;
+          color: white;
+          text-decoration: none;
+        }
+
+        #lat-lng a:hover, #kaabahDom a:hover {
+          text-decoration: underline;
+        }
+
+        #kaabahDom {
+          font-size: 14px;
+        }
+
+        @media only screen and (max-width: 1024px) {
+          #lat-lng, #kaabahDom {
+            font-size: 20px;
+          }
+        }
+
+      #rug-info {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 100;
+        position: relative !important;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
+        width: 90%;
+        margin-top: 25px;
+        margin-bottom: 112.5px;
+        line-height: 1.25em;
+        font-size: 20px;
+      }
+
+        @media only screen and (max-width: 1024px) {
+          #rug-info {
+            display: none;
+            font-weight: 200;
+            position: relative !important;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+            width: 90%;
+            margin-top: 1em;
+            padding-top: 1em;
+            margin-bottom: 0;
+            line-height: 1.25em;
+          }
+        }
+
+        #info-title {
+          font-size: 24px;
+          font-weight: 200 !important;
+        }
+
+        #info-title a {
+          color: white;
+          text-decoration: none;
+        }
+
+        #info-title a:hover {
+          text-decoration: underline;
+        }
+    /**** End Rug Design ****/
+  </style>
+
+  <script>
+    /* Rug Animation */
+    var open = false;
+    function openInfo() {
+      if (open == false) {
+        open = true;
+
+        document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
+        setTimeout(() => {
+          document.getElementById("rug-content").style.display = "none";
+          document.getElementById("rug-info").style.display = "flex";
+          document.getElementById("button").innerHTML = "Rug";
+        }, 500);
+
+        var x = window.matchMedia("(max-width: 1024px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+
+        function myFunction(x) {
+          if (x.matches) { // If media query matches
+            setTimeout(() => {
+              document.getElementById("rug-content").style.display = "none";
+              document.getElementById("rug-info").style.display = "flex";
+              document.getElementById("button").innerHTML = "Rug";
+            }, 0);
+          } else {
+            setTimeout(() => {
+              document.getElementById("rug-content").style.display = "none";
+              document.getElementById("rug-info").style.display = "flex";
+              document.getElementById("button").innerHTML = "Rug";
+            }, 500);
+          }
+        }
+      }
+      else {
+        var x = window.matchMedia("(max-width: 1024px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+
+        function myFunction(x) {
+          if (x.matches) { // If media query matches
+              document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
+              setTimeout(() => {
+                document.getElementById("rug-content").style.display = "flex";
+                document.getElementById("rug-info").style.display = "none";
+                document.getElementById("button").innerHTML = "Info";
+              }, 0);
+              open = false;
+          } else {
+            document.getElementById("rug").style.transform = "perspective(300px) rotateX(45deg)";
+            setTimeout(() => {
+              document.getElementById("rug-content").style.display = "flex";
+              document.getElementById("rug-info").style.display = "none";
+              document.getElementById("button").innerHTML = "Info";
+            }, 500);
+            open = false;
+          }
+        }
+      }
+    }
+    /* End Rug Animation */
+
+    /* Reset StreetView */
+    function refreshPage() {
+      var divLatLng = document.getElementById('lat-lng');
+      while(divLatLng.firstChild){
+        divLatLng.removeChild(divLatLng.firstChild);
+      }
+
+      var divkaabahDom = document.getElementById('kaabahDom');
+      while(divkaabahDom.firstChild){
+        divkaabahDom.removeChild(divkaabahDom.firstChild);
+      }
+      setGPS();
+      initMap();
+    }
+    /* End Reset StreetView */
+
+    /**** Qiblah Code ****/
+    var latGen;
+    var lngGen;
+    var kaabah = {
+      lat: toRadians(21.3891),
+      lon: toRadians(39.8579),
+    };
+    var kaabahBearing;
+
     setGPS();
-    initMap();
-  }
-  /**** Qiblah Code ****/
-  var latGen;
-  var lngGen;
-  var kaabah = {
-    lat: toRadians(21.3891),
-    lon: toRadians(39.8579),
-  };
-  var kaabahBearing;
 
-  setGPS();
+    function setGPS() {
+      latGen = parseFloat((Math.random() * 180 - 90).toFixed(8));
+      console.log("Lat: " + latGen);
+      lngGen = parseFloat((Math.random() * 360 - 180).toFixed(8));
+      console.log("Lon: " + lngGen);
 
-  function setGPS() {
-    latGen = parseFloat((Math.random() * 180 - 90).toFixed(8));
-    console.log("Lat: " + latGen);
-    lngGen = parseFloat((Math.random() * 360 - 180).toFixed(8));
-    console.log("Lon: " + lngGen);
+      var mydiv = document.getElementById("lat-lng");
+      var aTag = document.createElement('a');
+      aTag.setAttribute('href',"https://maps.google.com/maps?q=" + latGen.toFixed(8)+ "," + lngGen.toFixed(8));
+      aTag.setAttribute('target',"_blank");
+      aTag.innerText = latGen.toFixed(2) + ', ' + lngGen.toFixed(2);
+      mydiv.appendChild(aTag);
+      mydiv.html = "";
 
+      kaabahBearing = getBearing(toRadians(latGen), toRadians(lngGen), kaabah.lat, kaabah.lon);
+      if (kaabahBearing < 0) {
+        console.log("Kaabah: " + kaabahBearing + " / West of North");
+      } else {
+        console.log("Kaabah: " + kaabahBearing + " / East of North");
+      }
 
-    var mydiv = document.getElementById("lat-lng");
-    var aTag = document.createElement('a');
-    aTag.setAttribute('href',"https://maps.google.com/maps?q=" + latGen.toFixed(8)+ "," + lngGen.toFixed(8));
-    aTag.setAttribute('target',"_blank");
-    aTag.innerText = latGen.toFixed(2) + ', ' + lngGen.toFixed(2);
-    mydiv.appendChild(aTag);
-    mydiv.html = "";
-
-    kaabahBearing = getBearing(toRadians(latGen), toRadians(lngGen), kaabah.lat, kaabah.lon);
-    if (kaabahBearing < 0) {
-      console.log("Kaabah: " + kaabahBearing + " / West of North");
-    } else {
-      console.log("Kaabah: " + kaabahBearing + " / East of North");
+      var mydiv = document.getElementById("kaabahDom");
+      var aTag = document.createElement('a');
+      aTag.setAttribute('href',"https://en.wikipedia.org/wiki/Qibla");
+      aTag.setAttribute('target',"_blank");
+      aTag.innerText = kaabahBearing.toFixed(2);
+      mydiv.appendChild(aTag);
     }
-    // document.getElementById("kaabahDom").innerHTML = (kaabahBearing.toFixed(2));
-    var mydiv = document.getElementById("kaabahDom");
-    var aTag = document.createElement('a');
-    aTag.setAttribute('href',"https://en.wikipedia.org/wiki/Qibla");
-    aTag.setAttribute('target',"_blank");
-    aTag.innerText = kaabahBearing.toFixed(2);
-    mydiv.appendChild(aTag);
-  }
 
+    function getBearing(lat1, lon1, lat2, lon2) {
+      var y = Math.sin(lon2 - lon1) * Math.cos(lat2);
+      var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
+      var brng = Math.atan2(y, x);
+      return toDegrees(brng);
+    }
 
-  function getBearing(lat1, lon1, lat2, lon2) {
-    var y = Math.sin(lon2 - lon1) * Math.cos(lat2);
-    var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
-    var brng = Math.atan2(y, x);
-    return toDegrees(brng);
-  }
+    function toDegrees(angle) {
+      return angle * (180 / Math.PI);
+    }
 
-  function toDegrees(angle) {
-    return angle * (180 / Math.PI);
-  }
+    function toRadians(angle) {
+      return angle * (Math.PI / 180);
+    }
+    /**** End Qiblah Code ****/
 
-  function toRadians(angle) {
-    return angle * (Math.PI / 180);
-  }
-  /**** End Qiblah Code ****/
+    /**** Street View Code ****/
+    let panorama;
 
-  /**** Street View Code ****/
-  // let panorama;
-  //
-  // function initMap() {
-  //   const berkeley = {
-  //     lat: latGen,
-  //     lng: lngGen
-  //   };
-  //   const sv = new google.maps.StreetViewService();
-  //   panorama = new google.maps.StreetViewPanorama(
-  //     document.getElementById("pano"), {
-  //       disableDefaultUI: true
-  //     }
-  //   );
-  //   // Set the initial Street View camera to the center of the map
-  //   sv.getPanorama({
-  //     location: berkeley,
-  //     radius: 1000000
-  //   }, processSVData);
-  // }
-  //
-  // function processSVData(data, status) {
-  //   if (status === "OK") {
-  //     const location = data.location;
-  //     panorama.setPano(location.pano);
-  //     panorama.setPov({
-  //       heading: kaabahBearing,
-  //       pitch: -10,
-  //     });
-  //
-  //   } else {
-  //     setGPS();
-  //     initMap();
-  //     location.reload();
-  //   }
-  // }
-  /**** End Street View Code ****/
+    function initMap() {
+      const berkeley = {
+        lat: latGen,
+        lng: lngGen
+      };
+      const sv = new google.maps.StreetViewService();
+      panorama = new google.maps.StreetViewPanorama(
+        document.getElementById("pano"), {
+          disableDefaultUI: true
+        }
+      );
+      // Set the initial Street View camera to the center of the map
+      sv.getPanorama({
+        location: berkeley,
+        radius: 1000000
+      }, processSVData);
+    }
 
-  /**** Reverse Geocode ****/
-  // axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latGen + ',' + latGen + '&key=AIzaSyCtMq7XliAPrVT60KhSoJ100xw8qIdulUs')
-  //   .then(function(response) {
-  //     var geoCode = response.data.results;
-  //     if (geoCode[1]) {
-  //       var indice = 0;
-  //       for (var j = 0; j < geoCode.length; j++) {
-  //         if (geoCode[j].types[0] == 'locality') {
-  //           indice = j;
-  //           break;
-  //         }
-  //       }
-  //       for (var i = 0; i < geoCode[j].address_components.length; i++) {
-  //         if (geoCode[j].address_components[i].types[0] == "locality") {
-  //           //this is the object you are looking for City
-  //           city = geoCode[j].address_components[i];
-  //         }
-  //         if (geoCode[j].address_components[i].types[0] == "administrative_area_level_1") {
-  //           //this is the object you are looking for State
-  //           region = geoCode[j].address_components[i];
-  //         }
-  //         if (geoCode[j].address_components[i].types[0] == "country") {
-  //           //this is the object you are looking for
-  //           country = geoCode[j].address_components[i];
-  //         }
-  //       }
-  //       //city data
-  //       console.log(city.long_name + ", " + region.long_name + ", " + country.short_name);
-  //     } else {
-  //       alert("No results found");
-  //     }
-  //   })
-  // /**** Reverse Geocode ****/
-</script>
+    function processSVData(data, status) {
+      if (status === "OK") {
+        const location = data.location;
+        panorama.setPano(location.pano);
+        panorama.setPov({
+          heading: kaabahBearing,
+          pitch: -10,
+        });
+
+      } else {
+        setGPS();
+        initMap();
+        location.reload();
+      }
+    }
+    /**** End Street View Code ****/
+  </script>
 
 </html>
