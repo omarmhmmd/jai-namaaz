@@ -12,7 +12,7 @@
   <body>
     <div id="container">
       <div id="button-container">
-        <button class = "button" onclick="openInfo()">Info</button>
+        <button id = "info-rug-btn" class = "button" onclick="openInfo()">Info</button>
         <button class = "button" onclick="refreshPage()">Place</button>
       </div>
       <div id="rug">
@@ -225,7 +225,7 @@
         <div id="rug-content">
           <div class="title">Prayer Place</div>
           <br>
-          <div class="title">جای نماز</div>
+          <!-- <div class="title">جای نماز</div> -->
           <br>
           <div id="lat-lng"></div>
           <br>
@@ -543,58 +543,41 @@
     function openInfo() {
       if (open == false) {
         open = true;
-
         document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
-        setTimeout(() => {
-          document.getElementById("rug-content").style.display = "none";
-          document.getElementById("rug-info").style.display = "flex";
-          document.getElementById("button").innerHTML = "Rug";
-        }, 500);
+        document.getElementById("info-rug-btn").innerHTML = "Rug";
 
-        var x = window.matchMedia("(max-width: 1024px)")
-        myFunction(x) // Call listener function at run time
-        x.addListener(myFunction) // Attach listener function on state changes
-
-        function myFunction(x) {
-          if (x.matches) { // If media query matches
-            setTimeout(() => {
-              document.getElementById("rug-content").style.display = "none";
-              document.getElementById("rug-info").style.display = "flex";
-              document.getElementById("button").innerHTML = "Rug";
-            }, 0);
-          } else {
-            setTimeout(() => {
-              document.getElementById("rug-content").style.display = "none";
-              document.getElementById("rug-info").style.display = "flex";
-              document.getElementById("button").innerHTML = "Rug";
-            }, 500);
-          }
+        if (matchMedia('only screen and (max-width: 1024px)').matches) {
+          setTimeout(() => {
+            document.getElementById("rug-content").style.display = "none";
+            document.getElementById("rug-info").style.display = "flex";
+          }, 0);
+        }
+        else {
+          setTimeout(() => {
+            document.getElementById("rug-content").style.display = "none";
+            document.getElementById("rug-thread").style.borderBottom = "1px solid white";
+            document.getElementById("rug-info").style.display = "flex";
+          }, 500);
         }
       }
       else {
-        var x = window.matchMedia("(max-width: 1024px)")
-        myFunction(x) // Call listener function at run time
-        x.addListener(myFunction) // Attach listener function on state changes
-
-        function myFunction(x) {
-          if (x.matches) { // If media query matches
-              document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
-              setTimeout(() => {
-                document.getElementById("rug-content").style.display = "flex";
-                document.getElementById("rug-info").style.display = "none";
-                document.getElementById("button").innerHTML = "Info";
-              }, 0);
-              open = false;
-          } else {
-            document.getElementById("rug").style.transform = "perspective(300px) rotateX(45deg)";
-            setTimeout(() => {
-              document.getElementById("rug-content").style.display = "flex";
-              document.getElementById("rug-info").style.display = "none";
-              document.getElementById("button").innerHTML = "Info";
-            }, 500);
-            open = false;
-          }
+        if (matchMedia('only screen and (max-width: 1024px)').matches) {
+          document.getElementById("rug").style.transform = "perspective(0) rotateX(0)";
+          setTimeout(() => {
+            document.getElementById("rug-content").style.display = "flex";
+            document.getElementById("rug-info").style.display = "none";
+          }, 0);
         }
+        else {
+          document.getElementById("rug").style.transform = "perspective(300px) rotateX(45deg)";
+          setTimeout(() => {
+            document.getElementById("rug-content").style.display = "flex";
+              document.getElementById("rug-thread").style.borderBottom = "2px solid white";
+            document.getElementById("rug-info").style.display = "none";
+          }, 500);
+        }
+        document.getElementById("info-rug-btn").innerHTML = "Info";
+        open = false;
       }
     }
     /* End Rug Animation */
@@ -672,41 +655,41 @@
     /**** End Qiblah Code ****/
 
     /**** Street View Code ****/
-    let panorama;
-
-    function initMap() {
-      const berkeley = {
-        lat: latGen,
-        lng: lngGen
-      };
-      const sv = new google.maps.StreetViewService();
-      panorama = new google.maps.StreetViewPanorama(
-        document.getElementById("pano"), {
-          disableDefaultUI: true
-        }
-      );
-      // Set the initial Street View camera to the center of the map
-      sv.getPanorama({
-        location: berkeley,
-        radius: 1000000
-      }, processSVData);
-    }
-
-    function processSVData(data, status) {
-      if (status === "OK") {
-        const location = data.location;
-        panorama.setPano(location.pano);
-        panorama.setPov({
-          heading: kaabahBearing,
-          pitch: -10,
-        });
-
-      } else {
-        setGPS();
-        initMap();
-        location.reload();
-      }
-    }
+    // let panorama;
+    //
+    // function initMap() {
+    //   const berkeley = {
+    //     lat: latGen,
+    //     lng: lngGen
+    //   };
+    //   const sv = new google.maps.StreetViewService();
+    //   panorama = new google.maps.StreetViewPanorama(
+    //     document.getElementById("pano"), {
+    //       disableDefaultUI: true
+    //     }
+    //   );
+    //   // Set the initial Street View camera to the center of the map
+    //   sv.getPanorama({
+    //     location: berkeley,
+    //     radius: 1000000
+    //   }, processSVData);
+    // }
+    //
+    // function processSVData(data, status) {
+    //   if (status === "OK") {
+    //     const location = data.location;
+    //     panorama.setPano(location.pano);
+    //     panorama.setPov({
+    //       heading: kaabahBearing,
+    //       pitch: -10,
+    //     });
+    //
+    //   } else {
+    //     setGPS();
+    //     initMap();
+    //     location.reload();
+    //   }
+    // }
     /**** End Street View Code ****/
   </script>
 
